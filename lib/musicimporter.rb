@@ -1,14 +1,12 @@
 class MusicImporter
   attr_accessor :path
-  @@files = []
 
   def initialize(path)
     self.path = path
-    self.files << path
   end
 
   def files
-    @@files
+    Dir.entires(path).select{|file| file.ends_with?(".mp3")}
   end
 
 end
